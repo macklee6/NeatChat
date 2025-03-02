@@ -47,6 +47,7 @@
   --hover-color: #f3f3f3;
   --bar-color: rgba(0, 0, 0, 0.1);
   --theme-color: var(--gray);
+  --scrollbar-thumb-color: #ddd;
 
   /* shadow */
   --shadow: 50px 50px 100px 10px rgb(0, 0, 0, 0.1);
@@ -72,6 +73,7 @@
   --border-in-light: 1px solid rgba(255, 255, 255, 0.192);
 
   --theme-color: var(--gray);
+  --scrollbar-thumb-color: #333;
 
   div:not(.no-dark) > svg {
     filter: invert(0.5);
@@ -153,9 +155,8 @@ body {
 }
 
 ::-webkit-scrollbar {
-  --bar-width: 10px;
-  width: var(--bar-width);
-  height: var(--bar-width);
+  width: 4px;
+  height: 4px;
 }
 
 ::-webkit-scrollbar-track {
@@ -163,10 +164,10 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--bar-color);
-  border-radius: 20px;
+  background-color: var(--scrollbar-thumb-color);
+  border-radius: 3px;
   background-clip: content-box;
-  border: 1px solid transparent;
+  border: none;
 }
 
 select {

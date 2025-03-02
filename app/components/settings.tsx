@@ -1544,6 +1544,7 @@ export function Settings() {
               }
             ></input>
           </ListItem>
+
           <ListItem
             title={Locale.Mask.Config.CodeFold.Title}
             subTitle={Locale.Mask.Config.CodeFold.SubTitle}
@@ -1558,7 +1559,9 @@ export function Settings() {
               }
             />
           </ListItem>
+        </List>
 
+        <List>
           <ListItem
             title={Locale.Settings.EnableModelSearch}
             subTitle={Locale.Settings.EnableModelSearchSubTitle}
@@ -1570,6 +1573,70 @@ export function Settings() {
                 updateConfig(
                   (config) =>
                     (config.enableModelSearch = e.currentTarget.checked),
+                )
+              }
+            />
+          </ListItem>
+
+          <ListItem
+            title={Locale.Settings.EnableThemeChange.Title}
+            subTitle={Locale.Settings.EnableThemeChange.SubTitle}
+          >
+            <input
+              type="checkbox"
+              checked={config.enableThemeChange}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.enableThemeChange = e.currentTarget.checked),
+                )
+              }
+            />
+          </ListItem>
+
+          <ListItem
+            title={Locale.Settings.EnablePromptHints.Title}
+            subTitle={Locale.Settings.EnablePromptHints.SubTitle}
+          >
+            <input
+              type="checkbox"
+              checked={config.enablePromptHints}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.enablePromptHints = e.currentTarget.checked),
+                )
+              }
+            />
+          </ListItem>
+
+          <ListItem
+            title={Locale.Settings.EnableClearContext.Title}
+            subTitle={Locale.Settings.EnableClearContext.SubTitle}
+          >
+            <input
+              type="checkbox"
+              checked={config.enableClearContext}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.enableClearContext = e.currentTarget.checked),
+                )
+              }
+            />
+          </ListItem>
+
+          <ListItem
+            title={Locale.Settings.EnableShortcuts.Title}
+            subTitle={Locale.Settings.EnableShortcuts.SubTitle}
+          >
+            <input
+              type="checkbox"
+              checked={config.enableShortcuts}
+              onChange={(e) =>
+                updateConfig(
+                  (config) =>
+                    (config.enableShortcuts = e.currentTarget.checked),
                 )
               }
             />

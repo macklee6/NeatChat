@@ -63,7 +63,6 @@
     border: var(--border-in-light);
     padding: 4px 10px;
     animation: slide-in ease 0.3s;
-    box-shadow: var(--card-shadow);
     transition: width ease 0.3s;
     align-items: center;
     height: 16px;
@@ -286,6 +285,11 @@
   flex-direction: column;
   position: relative;
   height: 100%;
+  touch-action: pan-y;
+  
+  @media screen and (max-width: 600px) {
+    overscroll-behavior-x: contain;
+  }
 }
 
 .chat-body {
@@ -315,6 +319,7 @@
 .chat-message {
   display: flex;
   flex-direction: row;
+  margin-top: 10px;
 
   &:last-child {
     animation: slide-in ease 0.3s;
@@ -331,7 +336,7 @@
 }
 
 .chat-message-header {
-  margin-top: 20px;
+  margin-top: 0;
   display: flex;
   align-items: center;
 
@@ -342,8 +347,8 @@
     align-items: flex-end;
     justify-content: space-between;
     transition: all ease 0.3s;
-    transform: scale(0.9) translateY(5px);
-    margin: 0 10px;
+    margin: 4px 10px 0;
+    min-height: 24px;
     opacity: 0;
     pointer-events: none;
 
@@ -354,7 +359,16 @@
   }
 
   .chat-model-name {
-    font-size: 12px;
+    @media screen and (min-width: 600px) {
+      font-size: 13px;
+      max-width: none;
+      white-space: nowrap;
+    }
+    @media screen and (max-width: 600px) {
+      font-size: 13px;
+      max-width: none;
+      white-space: nowrap;
+    }
     color: var(--black);
     margin-left: 6px;
   }
@@ -365,13 +379,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  margin-bottom: 10px;
 
   &:hover {
     .chat-message-edit {
       opacity: 0.9;
     }
 
-    .chat-message-actions {
+    &:not(.chat-message-user) .chat-message-actions {
       opacity: 1;
       pointer-events: all;
       transform: scale(1) translateY(0);
@@ -381,6 +396,17 @@
 
 .chat-message-user > .chat-message-container {
   align-items: flex-end;
+
+  .chat-message-actions {
+    opacity: 0;
+    transform: scale(0.9) translateY(5px);
+    transition: all ease 0.3s;
+  }
+
+  &:hover .chat-message-actions {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
 }
 
 .chat-message-avatar {
@@ -437,7 +463,7 @@
 .chat-message-item {
   box-sizing: border-box;
   max-width: 100%;
-  margin-top: 10px;
+  margin-top: 6px;
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.05);
   padding: 10px;
@@ -758,4 +784,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.chat-message-model {
+  @media screen and (min-width: 600px) {
+    font-size: 12px;
+  }
 }

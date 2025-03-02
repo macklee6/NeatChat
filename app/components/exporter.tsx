@@ -27,7 +27,6 @@ import NeatIcon from "../icons/neat.svg";
 import DownloadIcon from "../icons/download.svg";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { MessageSelector, useMessageSelector } from "./message-selector";
-import { Avatar } from "./emoji";
 import dynamic from "next/dynamic";
 
 import { toBlob, toPng } from "html-to-image";
@@ -549,7 +548,7 @@ export function ImagePreviewer(props: {
             >
               <div className={styles["avatar"]}>
                 {m.role === "user" ? (
-                  <Avatar avatar={config.avatar} />
+                  <div className={styles["empty-avatar"]} />
                 ) : (
                   <MaskAvatar
                     avatar={mask.avatar}

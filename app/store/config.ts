@@ -80,6 +80,11 @@ export type AppConfig = {
   ttsConfig: TTSConfig;
   realtimeConfig: RealtimeConfig;
   enableModelSearch: boolean;
+  enableThemeChange: boolean;
+  enablePromptHints: boolean;
+  enableClearContext: boolean;
+  enablePlugins: boolean;
+  enableShortcuts: boolean;
 };
 
 export const DEFAULT_CONFIG: AppConfig = {
@@ -140,6 +145,11 @@ export const DEFAULT_CONFIG: AppConfig = {
     voice: "alloy" as Voice,
   },
   enableModelSearch: false,
+  enableThemeChange: false,
+  enablePromptHints: false,
+  enableClearContext: true,
+  enablePlugins: false,
+  enableShortcuts: false,
 };
 
 export type ChatConfig = typeof DEFAULT_CONFIG;

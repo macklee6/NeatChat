@@ -104,7 +104,8 @@ export function Avatar(props: { model?: ModelType; avatar?: string }) {
           if (
             model.startsWith("gpt-4") ||
             model.startsWith("chatgpt-4o") ||
-            model.startsWith("o1")
+            model.startsWith("o1") ||
+            model.startsWith("o3")
           ) {
             return (
               <OpenAIIcon className="user-avatar model-avatar" alt="OpenAI" />
@@ -121,7 +122,7 @@ export function Avatar(props: { model?: ModelType; avatar?: string }) {
             return <DeepseekIcon className="user-avatar model-avatar" />;
           }
 
-          if (model.includes("moonshot")) {
+          if (model.includes("moonshot") || model.includes("kimi")) {
             return (
               <MoonShotIcon
                 className="user-avatar model-avatar"
